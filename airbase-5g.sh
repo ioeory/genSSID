@@ -31,3 +31,6 @@ fi
 #sleep 3
 #ifconfig at0 192.168.2.1/24 up &
 spoof
+
+
+##this scrippt default interface is set to wlan0
