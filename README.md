@@ -1,1 +1,2 @@
-# wps_wifi_script
+# wps_wifi_scriptF
+For wireless wifi positioning...
