@@ -4,8 +4,11 @@ essid=0
 spoof(){
 	for mac in $(grep -E ^[^#] $maclist)
 	do
+		clear 
+		sleep 1
 		let essid=essid+111 
 		airbase-ng -e $essid -c 36 -a "$mac" wlan0 & 
+		echo "Starting sssid $essid ..."
 	done
 }
 
@@ -18,10 +21,10 @@ else
 	if [ "$1" = "" ];then
 		echo "no input file"
 		exit 
-	else if [ ! -e $1 ];then
+	elif [ ! -e $1 ];then
 		echo "no such file"
 		exit
-	fi
+	
 	fi
 
 fi
