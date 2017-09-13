@@ -5,8 +5,10 @@ essid=0
 spoof(){
 	for mac in $(grep  -E ^[^#] $maclist)
 	do
+		clear
 		let essid=essid+111 
 		airbase-ng -e $essid -c 36 -a "$mac"   $device & 
+		sleep 1
 	done
 }
 
@@ -20,6 +22,7 @@ elif [ ! -f $1 ];then
 	echo "invalid file format"
 	exit
 fi
+###check essids file
 
 if [ "$2" = "" ];then
 	echo "no device input"
@@ -30,6 +33,8 @@ else
 		exit
 	fi
 fi
+
+##check Device
 
 
 #airbase-ng  -e 1111111111111 -c 40 -z 1 -w "1234567890" $device &
