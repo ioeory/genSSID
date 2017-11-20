@@ -1,6 +1,5 @@
 Aircrack airbase-ng 5g specs.
-WPS RELATED...
-
+Generate SSID with different mac from file
 
 Usage:
   airbase-5g.sh $maclist
