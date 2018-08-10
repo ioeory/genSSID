@@ -4,8 +4,8 @@ WPS RELATED...
 
 Usage:
   airbase-5g.sh $maclist
-  
-  
-  airbase-5g-spec.sh $maclist $device
-  
+
+
+  _airbase-5g.sh  $device $maclist
+
   
