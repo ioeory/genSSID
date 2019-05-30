@@ -2,19 +2,27 @@
 maclist=$1
 #essid=$(cat /dev/urandom | head -n 10 | md5sum | head -c 19)
 location=$(basename  $1  |grep -oE ^.*[\.]?)
+
+SSIDB=(TP-Link DLink  Linksys OpenWrt PDCN Asus "Asus ROG" "Asus RT" TpLink  Tenda Net-core Aruba TotoLink Cisco NetGear XiaoMi Mercury \
+Fast Phicomm Spark Z-Com Accton CoCom BLink JCG Buffalo Belkin ZTE HuaWei Trendnet Jetstream  Ubnt Zyxel Ruckus Alvarion Ubiquiti Serria Proxim\
+Xirrus Meru Avaya  Cerio Ciena )
+SLASHS=(- _ "" Home Office)
+
 spoof(){
 	airmon-ng check kill
 	for mac in $(grep -E ^[^#] $maclist)
 	do
+		SLASH=${SLASHS[$RANDOM % ${#SLASHS[@]}]}
+		SUBFIX=$(echo $mac|awk 'BEGIN{FS=":"} {print toupper($1$2$3$4)}')
+		SSID=${SSIDB[$RANDOM % ${#SSIDB[@]}]}$SLASH$SUBFIX
 		let i=i+1	
-#		let essid=essid+111 
 		essid=$(cat /dev/urandom | head -n 10 | md5sum | head -c 11)
 		sleep 1
 		clear
-		airbase-ng -e $essid -c 36 -a "$mac" wlan0 & 
+		airbase-ng -e $SSID -c 36 -a "$mac" wlan0 & 
 		echo "Starting $location-$i "
-		echo "SSID:-- $essid "
-	       	echo "MAC:--- $mac"
+		echo "SSID:-- $SSID "
+	    echo "MAC:--- $mac"
 	done
 }
 if [ $UID -ne 0 ];then
@@ -23,7 +31,7 @@ if [ $UID -ne 0 ];then
 fi
 
 pkill airbase-ng
-ifconfig  -a |grep wlan0 
+ifconfig  -a |grep wlan0
 
 if [ $? != 0 ];then
 	echo "Device not found"
