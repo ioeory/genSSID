@@ -21,7 +21,7 @@ gen_ssid(){
 		echo "#${SSID}" >>$SSID_LIST
 		echo "${BSSID}" >>$SSID_LIST
 		clear
-		#airbase-ng -e $SSID -c 36 -w 1234567890 -a $BSSID wlan1 & 
+		airbase-ng -e $SSID -c 36 -w 1234567890 -a $BSSID $DEV & 
 		echo -e "\033[33mGenerating $SSID with MAC $BSSID\033[0m"
 		sleep 1
 	done

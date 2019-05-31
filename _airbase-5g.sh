@@ -22,7 +22,7 @@ spoof(){
 		clear
 		airbase-ng -e $SSID -c 36 -w 1234567890 -a "$mac" $device & 
 		echo -e "\033[36mStarting $location-$i"
-	    echo -e "\033[32mSSID:-- $SSID \033[0m"
+		echo -e "\033[32mSSID:-- $SSID \033[0m"
 		echo -e "\033[33mMAC:--- $mac\033[0m"
 		sleep 1 
 	done
