@@ -40,7 +40,7 @@ check_dev(){
 
 check_num(){
 	[[ $UID -ne 0 ]] && echo -e "\033[31m This script must run as root! \033[0m" && exit
-	[[ $NUM -eq "" ]] && NUM=11 ; echo -e "\033[33m Nothing spec will generate $NUM SSID\033[0m"
+	[[ $NUM -eq "" ]] && echo -e "\033[33m Nothing spec will generate 12 SSID\033[0m" && NUM=12 ; 
 	#[[ $NUM -eq "" ]] && echo -e "\033[33m INPUT  SSIDS YOU WANT TO GENERATE\033[0m"  && exit
 	[[ $NUM -lt 7 || $NUM -gt 50 ]] && echo -e "\033[33mRANGE:7-50\033[0m" && exit
 	[[ ! -f $SSID_LIST ]] && echo "" >$SSID_LIST
