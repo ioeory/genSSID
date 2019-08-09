@@ -4,7 +4,7 @@ device=$1
 SSIDB=(TP-Link DLink  Linksys OpenWrt PDCN Asus AsusROG AsusRT TpLink  Tenda Net-core Aruba TotoLink Cisco NetGear XiaoMi Mercury \
 Fast Phicomm Spark Z-Com Accton CoCom BLink JCG Buffalo Belkin ZTE HuaWei Trendnet Jetstream  Ubnt Zyxel Ruckus Alvarion Ubiquiti Serria Proxim\
 Xirrus Meru Avaya  Cerio Ciena )
-SLASHS=(- _ "" Home Office Outdoor )
+SLASHS=(- _ "" Home Office  - _ - _ - _ - _ - _ - _ - _ "" "" "" )
 
 spoof(){
 #	airbase-ng  -e 1111111111111 -c 40  -w "1234567890"  $device &
