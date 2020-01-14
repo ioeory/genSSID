@@ -13,7 +13,7 @@ spoof(){
 	for mac in $(grep  -E ^[^#] $maclist)
 	do
 		SLASH=${SLASHS[$RANDOM % ${#SLASHS[@]}]}
-		SUBFIX=$(echo $mac|awk 'BEGIN{FS=":"} {print toupper($1$2$3)}')
+		SUBFIX=$(echo $mac|awk 'BEGIN{FS=":"} {print toupper($4$5$6)}')
 		SSID=${SSIDB[$RANDOM % ${#SSIDB[@]}]}$SLASH$SUBFIX
 		
 		let i=i+1
