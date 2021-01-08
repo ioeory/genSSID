@@ -7,4 +7,6 @@ Usage:
 	_airbase-5g.sh  $device $maclist
 	
 	genSSID.sh <NUM>
+	
+> to use airbase-5g.sh, u may need to change the variable DEV to the specify device..
 
